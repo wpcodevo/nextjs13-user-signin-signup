@@ -11,28 +11,11 @@ import { LoadingButton } from "@/components/LoadingButton";
 import useStore from "@/store";
 import { handleApiError } from "@/lib/helpers";
 import { toast } from "react-hot-toast";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
   const store = useStore();
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const forceLogin = searchParams?.get("forceLogin");
-
-  useEffect(() => {
-    const url = new URL(window.location.href);
-    const params = new URLSearchParams(url.search);
-
-    if (params.get("forceLogin") === "true") {
-      params.delete("forceLogin");
-      params.delete("error");
-      url.search = params.toString();
-
-      // Update the URL without refreshing the page
-      window.history.replaceState(null, "", url.toString());
-      window.location.reload();
-    }
-  }, []);
 
   const methods = useForm<LoginUserInput>({
     resolver: zodResolver(LoginUserSchema),
@@ -51,11 +34,17 @@ export default function LoginForm() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSubmitSuccessful]);
 
+  useEffect(() => {
+    store.reset();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   async function LoginUserFunction(credentials: LoginUserInput) {
     store.setRequestLoading(true);
     try {
       await apiLoginUser(JSON.stringify(credentials));
 
+      toast.success("Logged in successfully");
       return router.push("/profile");
     } catch (error: any) {
       console.log(error);
