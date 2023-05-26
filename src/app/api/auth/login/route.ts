@@ -25,13 +25,15 @@ export async function POST(req: NextRequest) {
       { sub: user.id },
       { exp: `${JWT_EXPIRES_IN}m` }
     );
+
+    const tokenMaxAge = parseInt(JWT_EXPIRES_IN) * 60;
     const cookieOptions = {
       name: "token",
       value: token,
       httpOnly: true,
       path: "/",
       secure: process.env.NODE_ENV !== "development",
-      expires: new Date(Date.now() + parseInt(JWT_EXPIRES_IN) * 60 * 1000),
+      maxAge: tokenMaxAge,
     };
 
     const response = new NextResponse(
@@ -45,11 +47,17 @@ export async function POST(req: NextRequest) {
       }
     );
 
-    await response.cookies.set(cookieOptions);
+    await Promise.all([
+      response.cookies.set(cookieOptions),
+      response.cookies.set({
+        name: "logged-in",
+        value: "true",
+        maxAge: tokenMaxAge,
+      }),
+    ]);
 
     return response;
   } catch (error: any) {
-    console.log(error);
     if (error instanceof ZodError) {
       return getErrorResponse(400, "failed validations", error);
     }

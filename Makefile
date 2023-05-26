@@ -7,3 +7,6 @@ commands:
 install-packages:
 	pnpm add @prisma/client zod bcryptjs jose
 	pnpm add -D prisma @types/bcryptjs
+
+	# or Frontend
+	pnpm add zustand tailwind-merge react-hook-form @hookform/resolvers react-hot-toast
