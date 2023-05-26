@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#  JWT Authentication in Next.js 13 API Route Handlers
 
-## Getting Started
+In this article, we'll explore how to implement JWT authentication in Next.js 13 API route handlers. We'll cover the process of generating and verifying JWTs, handling authentication errors, and protecting sensitive API endpoints.
 
-First, run the development server:
+![JWT Authentication in Next.js 13 API Route Handlers](https://codevoweb.com/wp-content/uploads/2023/05/JWT-Authentication-in-Next.js-13-API-Route-Handlers.webp)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Topics Covered
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Running the Next.js 13 JWT API Project Locally
+- Setup the Next.js Project
+- Setup Prisma in the Next.js Project
+    - Define the Database Model and Run Migrations
+    - Instantiate the Prisma Client
+- Create the Request Validation Schemas
+- Create Some Utility Functions
+    - Function to Get an Environment Variable
+    - Function to Return a Next.js API Response
+- Function to Return a Next.js API Response
+    - Sign the JWT using HS256 Algorithm
+    - Create a Function to Verify the JWT
+- Create a Next.js Middleware to Protect Routes
+- Create API Route Handlers to Handle the JWT Authentication
+    - Account Registration API Route Handler
+    - Account Login API Route Handler
+    - Account Logout API Route Handler
+    - Fetch Authenticated User Route Handler
+- Test the JWT Authentication
+    - Register an Account
+    - Sign in to your Account
+    - Get your Account Credentials
+    - Logout from your Account
+- Conclusion
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+Read the entire article here: [https://codevoweb.com/jwt-authentication-in-nextjs-13-api-route-handlers/](https://codevoweb.com/jwt-authentication-in-nextjs-13-api-route-handlers/)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
