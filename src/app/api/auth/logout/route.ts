@@ -6,11 +6,18 @@ export async function GET(req: NextRequest) {
     headers: { "Content-Type": "application/json" },
   });
 
-  await response.cookies.set({
-    name: "token",
-    value: "",
-    expires: -1,
-  });
+  await Promise.all([
+    response.cookies.set({
+      name: "token",
+      value: "",
+      maxAge: -1,
+    }),
+    response.cookies.set({
+      name: "logged-in",
+      value: "",
+      maxAge: -1,
+    }),
+  ]);
 
   return response;
 }

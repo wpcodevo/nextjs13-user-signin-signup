@@ -54,7 +54,15 @@ export async function middleware(req: NextRequest) {
   const authUser = (req as AuthenticatedRequest).user;
 
   if (!authUser) {
-    return NextResponse.redirect(new URL("/login", req.url));
+    return NextResponse.redirect(
+      new URL(
+        `/login?${new URLSearchParams({
+          error: "badauth",
+          forceLogin: "true",
+        })}`,
+        req.url
+      )
+    );
   }
 
   if (req.url.includes("/login") && authUser) {
