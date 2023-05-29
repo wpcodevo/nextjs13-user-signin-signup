@@ -46,27 +46,27 @@ In this article, you will learn how to build a frontend application within the n
 - Running the Next.js 13 JWT Authentication Project
 - Install Packages and Configure Tailwind CSS
 - Create the TypeScript Types and API Request Functions
-        - API Response Types
-        - API Request Functions
+    - API Response Types
+    - API Request Functions
 - Setup a Global Application State with Zustand
 - Implement the Authentication Logic
-        - Protect Page and API Routes in Next.js Middleware
-        - Create an Authentication Session Hook
-        - Create a Client-side JWT Protection Component
+    - Protect Page and API Routes in Next.js Middleware
+    - Create an Authentication Session Hook
+    - Create a Client-side JWT Protection Component
 - Create a Couple of Reusable Components
-        - Create a Spinner Component
-        - Create a Loading Button Component
-        - Create a Form Input Component
-        - Header Component with Logout Functionality
+    - Create a Spinner Component
+    - Create a Loading Button Component
+    - Create a Form Input Component
+    - Header Component with Logout Functionality
 - Create the Application Page Components
-        - Create an Error Handling Utility Function
-        - Account Registration Page
-        - Account Login Page
-        - Profile Page
+    - Create an Error Handling Utility Function
+    - Account Registration Page
+    - Account Login Page
+    - Profile Page
 - Testing the User Registration and Login Flow
-        - Register an Account
-        - Log in to your Account
-        - View your Account Credentials
+    - Register an Account
+    - Log in to your Account
+    - View your Account Credentials
 - Conclusion
 
 
